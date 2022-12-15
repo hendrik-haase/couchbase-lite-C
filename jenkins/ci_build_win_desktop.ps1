@@ -27,7 +27,7 @@ param(
 # This room is full of dragons, so you *will* get confused.  
 # You have been warned.
 
-$RelPkgDir = "MinSizeRel"
+$RelPkgDir = "RelWithDebInfo"
 
 function Make-Package() {
     param(
@@ -67,7 +67,7 @@ function Build() {
         throw "CMake failed"
     }
 
-    & "C:\Program Files\CMake\bin\cmake.exe" --build . --config MinSizeRel --target install --parallel 12
+    & "C:\Program Files\CMake\bin\cmake.exe" --build . --config RelWithDebInfo --target install --parallel 12
     if($LASTEXITCODE -ne 0) {
         throw "Build failed ($LASTEXITCODE)"
     }
@@ -81,7 +81,7 @@ function Run-UnitTest() {
     )
 
     Pop-Location
-    Push-Location $directory\couchbase-lite-c\test\MinSizeRel
+    Push-Location $directory\couchbase-lite-c\test\RelWithDebInfo
     & .\CBL_C_Tests -r list
     if($LASTEXITCODE -ne 0) {
         throw "CBL_C_Tests failed"
@@ -107,6 +107,6 @@ $Package_Name = "couchbase-lite-c-${Edition}-${Version}-${BuildNum}-windows-${Pa
 Make-Package "${env:WORKSPACE}\${Build_Dir}" "${Package_Name}.zip"
 
 # Windows symbols into a separate archive since they are not included in the "install" anyway
-Push-Location "${env:WORKSPACE}\${Build_Dir}\couchbase-lite-c\MinSizeRel"
+Push-Location "${env:WORKSPACE}\${Build_Dir}\couchbase-lite-c\RelWithDebInfo"
 & 7za a -tzip -mx9 "${env:WORKSPACE}\${Package_Name}-symbols.zip" cblite.pdb
 Pop-Location
