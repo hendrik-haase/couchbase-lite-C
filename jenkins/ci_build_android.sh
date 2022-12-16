@@ -76,7 +76,7 @@ function build_variant {
 	    -DANDROID_NATIVE_API_LEVEL=22 \
 	    -DANDROID_ABI=$1 \
 	    -DCMAKE_INSTALL_PREFIX=$(pwd)/../libcblite-$VERSION \
-	    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+	    -DCMAKE_BUILD_TYPE=MinSizeRel \
         -DEDITION=$EDITION \
 	    ..
 

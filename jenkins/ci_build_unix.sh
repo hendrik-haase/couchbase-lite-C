@@ -45,7 +45,7 @@ ln -sf ${WORKSPACE}/couchbase-lite-c-ee/couchbase-lite-core-EE ${WORKSPACE}/couc
 
 echo "====  Building macos/linux Release binary  ==="
 cd ${WORKSPACE}/build_release
-cmake -DEDITION=${EDITION} -DCMAKE_INSTALL_PREFIX=`pwd`/libcblite-$VERSION -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+cmake -DEDITION=${EDITION} -DCMAKE_INSTALL_PREFIX=`pwd`/libcblite-$VERSION -DCMAKE_BUILD_TYPE=MinSizeRel ..
 make -j8
 if [[ "${OS}" == "macos" ]]; then
     pushd ${project_dir}
