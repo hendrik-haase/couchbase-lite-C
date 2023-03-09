@@ -109,7 +109,7 @@ void createDocWithPair(CBLCollection *col, fleece::slice docID, fleece::slice pr
 
 void createDocWithPair(CBLDatabase *db, fleece::slice docID, fleece::slice property, fleece::slice value);
 
-void createNumberedDocsWithPrefix(CBLCollection *col, unsigned n, std::string idprefix, unsigned start = 1);
+void createNumberedDocsWithPrefix(CBLCollection *col, unsigned n, const std::string& idprefix, unsigned start = 1);
 
 void PurgeAllDocs(CBLCollection* collection);
 

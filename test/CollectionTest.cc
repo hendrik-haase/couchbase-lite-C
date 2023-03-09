@@ -981,7 +981,7 @@ TEST_CASE_METHOD(CollectionTest, "Remove Collection Listener after releasing col
     CBLListener_Remove(docToken);
 }
 
-TEST_CASE_METHOD(CollectionTest, "Collection - Scheduled database notifications") {
+TEST_CASE_METHOD(CollectionTest, "Scheduled collection notifications at database level") {
     // Add a listener:
     defaultListenerCalls = fooListenerCalls = barListenerCalls = 0;
 

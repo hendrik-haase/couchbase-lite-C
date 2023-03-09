@@ -49,8 +49,9 @@ public:
     cbl::Database db;
     cbl::Collection defaultCollection;
 
+    void createDocumentInDefault(cbl::Database &db, std::string docID, std::string property, std::string value);
 };
 
 void createDocWithJSON(cbl::Collection& collection, std::string docID, std::string jsonContent);
 
-void createNumberedDocsWithPrefix(cbl::Collection& collection, unsigned n, std::string idprefix, unsigned start = 1);
+void createNumberedDocsWithPrefix(cbl::Collection& collection, unsigned n, const std::string& idprefix, unsigned start = 1);
