@@ -110,7 +110,6 @@ namespace cbl {
             conf.maxAttemptWaitTime = maxAttemptWaitTime;
             conf.heartbeat = heartbeat;
             conf.authenticator = authenticator.ref();
-            conf.acceptParentDomainCookies = acceptParentDomainCookies;
             conf.proxy = proxy;
             if (!headers.empty())
                 conf.headers = headers;
